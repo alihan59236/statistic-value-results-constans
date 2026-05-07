@@ -1,0 +1,25 @@
+{
+  "timestamp": "2024-12-28T10:30:00Z",
+  "period": "december_2024",
+  "aggregated_metrics": {
+    "total_events": 1542876,
+    "unique_users": 87654,
+    "avg_session_duration": 324.5,
+    "bounce_rate": 0.423,
+    "pages_per_session": 2.8
+  },
+  "performance": {
+    "avg_load_time_ms": 1240,
+    "p95_load_time_ms": 3420,
+    "error_rate": 0.0087
+  },
+  "forecast": {
+    "next_month_growth": 0.087,
+    "confidence_interval": [0.065, 0.109]
+  },
+  "processing_metadata": {
+    "pipeline_run_id": "run_8f3a9d2e_20241228",
+    "data_freshness_hours": 4,
+    "quality_score": 0.987
+  }
+}

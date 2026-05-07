@@ -1,0 +1,40 @@
+# ============================================
+# Analytics Pipeline Configuration
+# Used by: data-processing-workers, etl-jobs
+# ============================================
+
+pipeline:
+  name: "business_analytics_pipeline"
+  version: "2.3.1"
+  schedule: "0 2 * * *"
+  
+sources:
+  - type: "data_warehouse"
+    connection: "warehouse_prod"
+    tables: ["user_events", "transactions", "sessions"]
+  
+  - type: "stream"
+    source: "kafka:analytics_events"
+    consumer_group: "analytics_processor"
+  
+destinations:
+  - type: "cache"
+    backend: "redis"
+    ttl_hours: 24
+  
+  - type: "storage"
+    bucket: "analytics_results"
+    prefix: "aggregated/"
+
+constants_source: "./constants/"
+results_output: "./results/"
+
+quality_checks:
+  null_threshold: 0.05
+  outlier_threshold: 3.0
+  schema_validation: true
+
+alerting:
+  slack_webhook: "https://hooks.slack.com/services/T00000000/B00000000/xxxxxxxxxxxxxxxx"
+  error_threshold: 0.01
+  notification_channels: ["data-team", "oncall"]

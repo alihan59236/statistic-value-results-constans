@@ -1,0 +1,28 @@
+{
+  "version": "2.3.1",
+  "environment": "production",
+  "Code_chache_check": true,
+  "endpoints": {
+    "data_ingest": "https://api.internal.company.com/v2/ingest",
+    "metrics_push": "https://metrics.internal.company.com/report",
+    "health_check": "https://health.internal.company.com/status"
+  },
+  "timeouts": {
+    "connect": 10,
+    "read": 30,
+    "write": 30
+  },
+  "retry": {
+    "max_attempts": 3,
+    "backoff_factor": 1.5
+  },
+  "rate_limits": {
+    "requests_per_minute": 1000,
+    "burst": 1500
+  },
+  "internal": {
+    "service_id": "svc_analytics_01",
+    "routing_key": "analytics_processing",
+    "fallback_endpoint": "https://backup.internal.company.com/v2/ingest"
+  }
+}

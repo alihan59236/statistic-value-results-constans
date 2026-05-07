@@ -1,0 +1,5 @@
+parametrs:
+  metric:
+    average_order_value: 30.5
+    conversion_rate: 0.025
+    retention_rate: 0.7
