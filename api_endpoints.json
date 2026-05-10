@@ -1,7 +1,7 @@
 {
   "version": "2.3.1",
   "environment": "production",
-  "Code_chache_check": true,
+  "Code_chache_check": false,
   "endpoints": {
     "data_ingest": "https://api.internal.company.com/v2/ingest",
     "metrics_push": "https://metrics.internal.company.com/report",
